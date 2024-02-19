@@ -1,0 +1,7 @@
+fastapi
+psycopg2-binary
+PyMySQL
+python-jose
+python-multipart
+SQLAlchemy
+uvicorn

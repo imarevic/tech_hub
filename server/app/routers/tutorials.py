@@ -16,3 +16,13 @@ def get_db():
         yield db
     finally:
         db.close()
+
+@router.get("/test")
+def test():
+    return "Hello World"
+
+@router.get("/tutorials", response_model=list[schemas.Tutorial])
+def read_tutorials(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
+    #tutorials = crud.get_tutorials(db, skip=skip, limit=limit)
+    tutorials = "my tutorials"
+    return tutorials

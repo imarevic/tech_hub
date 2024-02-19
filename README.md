@@ -8,7 +8,7 @@ This is a tutorial web app that contains a variety of tech tutorials.
 
 ## Backend
 
-#### Environment Setup
+#### Setup
 For development it is best to create a virtual environment. In order to do so you can use the built in Python `venv` module:
 
 1. Change to `/server` directory: 
@@ -22,10 +22,15 @@ For development it is best to create a virtual environment. In order to do so yo
     ```
 
 3. Activate env:
-    1. Linux: `source tech-hub/bin/activate`
-    2. Windows `.\tech-hub\Scripts\activate`
+    - Linux: `source tech-hub/bin/activate`
+    - Windows `.\tech-hub\Scripts\activate`
 
-4. Deactivate env:
+4. Install Python packages:
+
+    - Local dev setup: `pip install -r requirements-dev.txt`
+    - Production setup: `pip install -r requirements.txt`
+
+5. Deactivate env:
     ```
     deactivate
     ```
