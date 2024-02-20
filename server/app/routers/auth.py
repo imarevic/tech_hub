@@ -4,8 +4,9 @@ from sqlalchemy.orm import Session
 from fastapi import APIRouter, Depends, HTTPException, Path
 from starlette import status
 
-from .. import crud, models, schemas
-from ..database import SessionLocal, engine
+from ..models import models, schemas
+from .. import crud
+from ..db.database import SessionLocal, engine
 
 router = APIRouter()
 

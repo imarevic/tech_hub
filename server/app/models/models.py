@@ -2,7 +2,7 @@ from sqlalchemy import Boolean, Column, ForeignKey, Integer, String, DateTime
 from sqlalchemy.orm import relationship
 from sqlalchemy.sql import func
 
-from .database import Base
+from ..db.database import Base
 
 class User(Base):
     __tablename__="users"
@@ -13,17 +13,13 @@ class User(Base):
     is_active = Column(Boolean, default=True)
     is_admin = Column(Boolean, default=True)
 
-    tutorials = relationship("Tutorial", back_populates="creator")
-
 class Topic(Base):
     __tablename__ = "topics"
 
     id = Column(Integer, primary_key=True)
     name = Column(String)
     description = Column(String, nullable=True)
-    sub_tobic = Column(String, nullable=True)
-
-    tutorials = relationship("Tutorial", back_populates="topic")
+    sub_topic = Column(String, nullable=True)
 
 class Tutorial(Base):
     __tablename__ = "tutorials"
@@ -36,7 +32,5 @@ class Tutorial(Base):
     last_modified_timestamp = Column(DateTime(timezone=True), onupdate=func.now())
 
     topic_id = Column(Integer, ForeignKey("topics.id"))
-    topic = relationship("Topic", back_populates="tutorials")
 
     creator_id = Column(Integer, ForeignKey("users.id"))
-    creator = relationship("User", back_populates="users")

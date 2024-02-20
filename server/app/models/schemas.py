@@ -11,10 +11,6 @@ class TopicCreate(TopicBase):
 
 class Topic(TopicBase):
     id: int
-    tutorials: int
-
-    class Config:
-        orm_mode = True
 
 class UserBase(BaseModel):
     email: str
@@ -26,9 +22,6 @@ class User(UserBase):
     id: int
     is_active: bool
     is_admin: bool
-
-    class Config:
-        orm_mode = True
 
 class TutorialBase(BaseModel):
     name: str

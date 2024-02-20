@@ -18,12 +18,12 @@ def get_db():
     finally:
         db.close()
 
-@router.get("/test")
-def test():
-    return "Hello World"
 
-@router.get("/tutorials", response_model=list[schemas.Tutorial])
+@router.get("/topics", response_model=list[schemas.Topic])
 def read_tutorials(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
-    #tutorials = crud.get_tutorials(db, skip=skip, limit=limit)
-    tutorials = "my tutorials"
-    return tutorials
+    topics = crud.get_topics(db, skip=skip, limit=limit)
+    return topics
+
+@router.post("/topics", response_model=schemas.Topic, status_code=status.HTTP_201_CREATED)
+def create_topic(topic : schemas.TopicCreate, db: Session = Depends(get_db)):
+    return crud.create_topic(db=db, topic=topic)
