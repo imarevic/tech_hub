@@ -6,17 +6,9 @@ from starlette import status
 
 from ..models import models, schemas
 from .. import crud
-from ..db.database import SessionLocal, engine
+from ..db.database import SessionLocal, engine, get_db
 
 router = APIRouter()
-
-# dependency
-def get_db():
-    db = SessionLocal()
-    try:
-        yield db
-    finally:
-        db.close()
 
 
 @router.get("/topics", response_model=list[schemas.Topic])

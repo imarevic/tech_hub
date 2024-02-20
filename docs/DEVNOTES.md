@@ -1,5 +1,18 @@
 #### Commands to work with Docker on Linux
 
+The following is to give your user enough rights to interact with docker engine on linux:
+
+```
+sudo usermod -aG docker ${USER}
+```
+
+then add user to su:
+
+```
+su - ${USER}
+```
+
+
 These commands are mainly for local testing.
 
 Bring down any running containers with volumes:
