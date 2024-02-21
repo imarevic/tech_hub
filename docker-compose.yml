@@ -16,7 +16,7 @@ services:
       - db
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.fastapi.rule=Host(`fastapi.localhost`)"
+      - "traefik.http.routers.fastapi.rule=Host(`localhost`)"
   db:
     image: postgres:15-alpine
     container_name: tech-hub-db

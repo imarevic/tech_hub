@@ -12,8 +12,9 @@ then add user to su:
 su - ${USER}
 ```
 
+---
 
-These commands are mainly for local testing.
+These commands are mainly for local testing:
 
 Bring down any running containers with volumes:
 
